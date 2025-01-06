@@ -67,7 +67,10 @@ const images = [
   },
 ];
 
-const galleryContainer = document.querySelector('.gallery');
+const body = document.querySelector('body');
+const galleryElement = document.createElement('ul');
+galleryElement.classList.add('gallery');
+body.appendChild(galleryElement);
 
 const galleryMarkup = images
   .map(
@@ -84,6 +87,8 @@ const galleryMarkup = images
   `
   )
   .join('');
+
+galleryElement.innerHTML = galleryMarkup;
 
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
